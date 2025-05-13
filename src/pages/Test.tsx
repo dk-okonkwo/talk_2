@@ -5,16 +5,16 @@ import { Button } from '@/components/ui/button'
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
+  // DialogDescription,
+  // DialogFooter,
+  // DialogHeader,
+  // DialogTitle,
+  // DialogTrigger,
 } from '@/components/ui/dialog'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { type CarouselApi } from '@/components/ui/carousel'
-import React, { useState } from 'react'
+// import { Input } from '@/components/ui/input'
+// import { Label } from '@/components/ui/label'
+// import { type CarouselApi } from '@/components/ui/carousel'
+import { useState } from 'react'
 
 export function CarouselDialog() {
   const [open, setOpen] = useState(false)

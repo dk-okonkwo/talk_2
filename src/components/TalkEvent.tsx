@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { UserSquare, Calendar, CloseCircle } from 'iconsax-react'
 // image, title, time, fee, description
 

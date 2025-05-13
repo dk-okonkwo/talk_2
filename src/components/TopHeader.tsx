@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
-import HeaderDropdown from './HeaderDropdown'
+import { useState } from 'react'
+// import HeaderDropdown from './HeaderDropdown'
 import { MessageText, Notification } from 'iconsax-react'
-import TalkSearch, { SearchForm } from './Search'
+import { SearchForm } from './Search'
 import { AvatarDropdown } from './AvatarDropdown'
 
 function TopHeader() {

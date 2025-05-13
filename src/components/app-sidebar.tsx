@@ -1,10 +1,5 @@
 import * as React from 'react'
-import {
-  AudioWaveform,
-  Command,
-  GalleryVerticalEnd,
-  SquareTerminal,
-} from 'lucide-react'
+import { SquareTerminal } from 'lucide-react'
 import { MarketNav } from '@/components/nav-main'
 import { NavUser } from '@/components/nav-user'
 import { TeamSwitcher } from '@/components/team-switcher'

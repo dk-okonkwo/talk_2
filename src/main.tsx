@@ -1,29 +1,29 @@
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
 import {
-  Outlet,
+  // Outlet,
   RouterProvider,
-  createRootRoute,
-  createRoute,
-  createRouter,
+  // createRootRoute,
+  // createRoute,
+  // createRouter,
 } from '@tanstack/react-router'
-import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
-import DemoFormAddress from './routes/demo.form.address'
-import DemoFormSimple from './routes/demo.form.simple'
-import DemoStore from './routes/demo.store'
-import DemoTable from './routes/demo.table'
-import DemoTanstackQuery from './routes/demo.tanstack-query'
+// import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
+// import DemoFormAddress from './routes/demo.form.address'
+// import DemoFormSimple from './routes/demo.form.simple'
+// import DemoStore from './routes/demo.store'
+// import DemoTable from './routes/demo.table'
+// import DemoTanstackQuery from './routes/demo.tanstack-query'
 
-import Header from './components/Header'
+// import Header from './components/Header'
 
-import TanstackQueryLayout from './integrations/tanstack-query/layout'
+// import TanstackQueryLayout from './integrations/tanstack-query/layout'
 
 import * as TanstackQuery from './integrations/tanstack-query/root-provider'
 
 import './styles.css'
 import reportWebVitals from './reportWebVitals.ts'
 
-import App from './App.tsx'
+// import App from './App.tsx'
 
 import { router } from './routes.tsx'
 

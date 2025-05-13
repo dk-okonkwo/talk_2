@@ -1,4 +1,3 @@
-import React from 'react'
 import { Notification } from 'iconsax-react'
 import { Button } from '@/components/ui/button'
 import {
