@@ -1,3 +1,5 @@
+import evOne from '../assets/images/events/event1.png'
+
 export interface MainEvent {
   id: number
   img: string
@@ -11,7 +13,7 @@ export interface MainEvent {
 export const allEvents: MainEvent[] = [
   {
     id: 1,
-    img: '@/assets/images/events/event1.png',
+    img: evOne,
     title: 'Soccer Tournament',
     date: 'Friday - 17/08',
     time: '9:30am',
