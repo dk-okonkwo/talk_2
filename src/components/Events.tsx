@@ -4,7 +4,7 @@ import TalkEvent from './TalkEvent'
 const allEvents = [
   {
     id: 1,
-    img: 'src/assets/images/events/event1.png',
+    img: '@/assets/images/events/event1.png',
     title: 'Soccer Tournament',
     date: 'Friday - 17/08',
     time: '9:30am',
@@ -14,7 +14,7 @@ const allEvents = [
   },
   {
     id: 2,
-    img: 'src/assets/images/events/event2.png',
+    img: '../assets/images/events/event2.png',
     title: 'Semi Finals - Swimming',
     date: 'Saturday - 19/09',
     time: '9:30am',
@@ -24,7 +24,7 @@ const allEvents = [
   },
   {
     id: 3,
-    img: 'src/assets/images/events/event3.png',
+    img: '@/assets/images/events/event3.png',
     title: 'Gymnastics Competitions',
     date: 'Sunday - 21/03',
     time: '9:30am',
