@@ -1,4 +1,8 @@
 import evOne from '../assets/images/events/event1.png'
+import evTwo from '../assets/images/events/event2.png'
+import evThree from '../assets/images/events/event3.png'
+import evFour from '../assets/images/events/event4.png'
+import evFive from '../assets/images/events/event5.png'
 
 export interface MainEvent {
   id: number
@@ -23,7 +27,7 @@ export const allEvents: MainEvent[] = [
   },
   {
     id: 2,
-    img: '../assets/images/events/event2.png',
+    img: evTwo,
     title: 'Semi Finals - Swimming',
     date: 'Saturday - 19/09',
     time: '9:30am',
@@ -33,7 +37,7 @@ export const allEvents: MainEvent[] = [
   },
   {
     id: 3,
-    img: '@/assets/images/events/event3.png',
+    img: evThree,
     title: 'Gymnastics Competitions',
     date: 'Sunday - 21/03',
     time: '9:30am',
@@ -43,7 +47,7 @@ export const allEvents: MainEvent[] = [
   },
   {
     id: 4,
-    img: 'src/assets/images/events/event4.png',
+    img: evFour,
     title: 'Judo - Training',
     date: 'Wednesday - 21/08',
     time: '12:30pm',
@@ -53,7 +57,7 @@ export const allEvents: MainEvent[] = [
   },
   {
     id: 5,
-    img: 'src/assets/images/events/event5.png',
+    img: evFive,
     title: 'Fit Dance in the sqaure',
     date: 'Teusday - 22/03',
     time: '8:00am',
