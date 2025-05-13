@@ -9,7 +9,7 @@ import { AlbumArtwork } from '@/components/ui/album-artwork'
 import { Menu } from '@/components/ui/menu'
 import { PodcastEmptyPlaceholder } from '@/components/ui/podcast-empty-placeholder'
 import { Sidebar } from '@/components/ui/sidebar2'
-import { listenNowAlbums, madeForYouAlbums } from '@/data/album'
+import { madeForYouAlbums } from '@/data/album'
 import { playlists } from '@/data/playlists'
 import vin from '../assets/images/vintage-red.jpg'
 

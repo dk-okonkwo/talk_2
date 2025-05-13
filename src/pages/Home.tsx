@@ -1,8 +1,3 @@
-import { AvatarDropdown } from '@/components/AvatarDropdown';
-import { HoverCardDemo } from '@/components/Hover';
-import { SearchForm } from '@/components/Search';
-import { AvatarDemo } from '@/components/TAvatar';
-import React from 'react'
 
 function Home() {
   return (

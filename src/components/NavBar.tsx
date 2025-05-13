@@ -1,11 +1,9 @@
-import React from 'react'
 import {
   Home,
   Shop,
   MenuBoard,
   Heart,
   UserOctagon,
-  LogoutCurve,
 } from 'iconsax-react'
 import { Link, useRouterState } from '@tanstack/react-router'
 import { type Icon } from 'iconsax-react'

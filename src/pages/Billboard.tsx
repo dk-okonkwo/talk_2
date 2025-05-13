@@ -1,5 +1,4 @@
 import { BillTabs } from '@/components/BillTabs'
-import React from 'react'
 
 function Billboard() {
   return (

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import robo from '../assets/images/robo.jpg'
 import { ArrowDown2 } from 'iconsax-react'
 

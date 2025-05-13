@@ -1,4 +1,3 @@
-import React from 'react'
 import robo from '../assets/images/robo.jpg'
 import {
   Brush3,

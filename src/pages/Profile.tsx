@@ -1,8 +1,4 @@
-import TalkPost from '@/components/Post'
-import ProfileHeader from '@/components/ProfileHeader'
-import React from 'react'
 import usr from '../assets/images/usrimg.jpg'
-import { Link } from '@tanstack/react-router'
 import { ProfileMenu } from '@/components/ProfileMenu'
 import { Youtube, Instagram, Facebook } from 'iconsax-react'
 import ProfilePosts from '@/components/Posts02'
@@ -97,10 +93,10 @@ function ProfileImg({ img }: { img: string }) {
   )
 }
 
-function ProfileLinkItem({ name }: { name: string }) {
-  return (
-    <div className="flex flex-col items-center">
-      <span className="font-bold">{name}</span>
-    </div>
-  )
-}
+// function ProfileLinkItem({ name }: { name: string }) {
+//   return (
+//     <div className="flex flex-col items-center">
+//       <span className="font-bold">{name}</span>
+//     </div>
+//   )
+// }

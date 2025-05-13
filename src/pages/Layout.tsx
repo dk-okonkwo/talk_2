@@ -4,14 +4,6 @@ import { SearchForm } from '@/components/Search'
 import { Button } from '@/components/ui/button'
 import { Link, Outlet } from '@tanstack/react-router'
 import { MessageText } from 'iconsax-react'
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from '@/components/ui/breadcrumb'
 import { Separator } from '@/components/ui/separator'
 import {
   SidebarInset,
@@ -24,13 +16,6 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/tooltip'
-import {
-  AudioWaveform,
-  Command,
-  GalleryVerticalEnd,
-  SquareTerminal,
-} from 'lucide-react'
-import SideBar from '@/components/SideBar'
 import NavBar from '@/components/NavBar'
 import { TeamSwitcher } from '@/components/team-switcher'
 import talkLogo from '../assets/images/logo.png'

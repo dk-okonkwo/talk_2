@@ -1,13 +1,7 @@
-import { PlusCircle } from 'lucide-react'
-
-import { Button } from '@/components/ui/button'
-import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
+import { ScrollArea } from '@/components/ui/scroll-area'
 import { Separator } from '@/components/ui/separator'
 
-import { AlbumArtwork } from '@/components/ui/album-artwork'
-import { listenNowAlbums, madeForYouAlbums } from '@/data/album'
-import { playlists } from '@/data/playlists'
-import vin from '../assets/images/vintage-red.jpg'
+import { madeForYouAlbums } from '@/data/album'
 import { DialogDemo } from './DialogDemo'
 
 export const metadata = {

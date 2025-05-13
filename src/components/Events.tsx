@@ -1,4 +1,3 @@
-import React from 'react'
 import TalkEvent from './TalkEvent'
 // image, title, date, time, fee, description
 
