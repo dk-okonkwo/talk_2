@@ -10,7 +10,7 @@ import Page from './pages/Layout'
 import { BillTabs } from './components/BillTabs'
 import MusicPage from './pages/music'
 import { CarouselDialog } from './pages/Test'
-
+import Workshop from './pages/Workshop'
 
 const rootRoute = createRootRoute({
   component: Page,
@@ -52,6 +52,12 @@ const savedRoute = new Route({
   component: Saved,
 })
 
+const workshopRoute = new Route({
+  getParentRoute: () => rootRoute,
+  path: '/workshop',
+  component: Workshop,
+})
+
 const routeTree = rootRoute.addChildren([
   homeRoute,
   marketRoute,
@@ -59,6 +65,7 @@ const routeTree = rootRoute.addChildren([
   messagesRoute,
   profileRoute,
   savedRoute,
+  workshopRoute,
 ])
 
 export const router = new Router({ routeTree })

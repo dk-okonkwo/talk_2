@@ -195,3 +195,31 @@ body {
     background-image: none !important;
   }
 }
+
+.bg-text {
+  color: var(--bg-text);
+}
+
+.primary-text {
+  color: var(--primary);
+}
+
+.normal-text {
+  color: var(--subheading);
+}
+
+.primary-bg {
+  background-color: var(--primary);
+}
+
+.accent-bg {
+  background-color: var(--primary-accent);
+}
+
+.stop-dim {
+  stop-color: white;
+}
+
+.stop-main {
+  stop-color: var(--primary);
+}
