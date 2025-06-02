@@ -10,8 +10,8 @@ import bm3 from '@/assets/images/greybm.jpeg'
 import TopProductItem from '@/components/TopProduct'
 import { productDetails } from '@/data/workshop-data'
 import { Button } from '@/components/ui/button'
-import MainReviews, { ReviewsCarousel } from '@/components/ReviewsCarousel'
-import WorkshopReviews from '@/components/WorkshopReviews'
+// import MainReviews, { ReviewsCarousel } from '@/components/ReviewsCarousel'
+// import WorkshopReviews from '@/components/WorkshopReviews'
 import NewestProducts from '@/components/newest_products'
 
 const collections: string[] = [bm1, bm2, bm3]
