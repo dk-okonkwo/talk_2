@@ -26,13 +26,13 @@ export function ReviewsCarousel({ children }: ReviewsCarouselProps) {
         <div
           className="card-container absolute !w-95 !h-95"
           style={{
-            '--active': i === active ? 1 : 0,
-            '--offset': (active - i) / 3,
-            '--direction': Math.sign(active - i) / 5,
-            '--abs-offset': Math.abs(active - i) / 5,
-            'pointer-events': active === i ? 'auto' : 'none',
-            opacity: Math.abs(active - i) >= MAX_VISIBILITY ? '0' : '1',
-            display: Math.abs(active - i) > MAX_VISIBILITY ? 'none' : 'block',
+            // '--active': i === active ? 1 : 0,
+            // '--offset': (active - i) / 3,
+            // '--direction': Math.sign(active - i) / 5,
+            // '--abs-offset': Math.abs(active - i) / 5,
+            // 'pointer-events': active === i ? 'auto' : 'none',
+            // opacity: Math.abs(active - i) >= MAX_VISIBILITY ? '0' : '1',
+            // display: Math.abs(active - i) > MAX_VISIBILITY ? 'none' : 'block',
           }}
         >
           {child}

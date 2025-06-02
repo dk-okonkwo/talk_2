@@ -27,13 +27,13 @@ function CarouselContainer({ children }: CarouselContainerProps) {
             <div
               className="w-95 h-95 card-container-2"
               style={{
-                '--active': i === active ? 1 : 0,
-                '--offset': (active - i) / 5,
-                '--direction': Math.sign(active - i) / 3,
-                '--abs-offset': Math.abs(active - i) / 1.5,
-                'pointer-events': active === i ? 'auto' : 'none',
-                opacity: Math.abs(active - i) >= max_vis ? '0' : '1',
-                display: Math.abs(active - i) > max_vis ? 'none' : 'block',
+                // '--active': i === active ? 1 : 0,
+                // '--offset': (active - i) / 5,
+                // '--direction': Math.sign(active - i) / 3,
+                // '--abs-offset': Math.abs(active - i) / 1.5,
+                // 'pointer-events': active === i ? 'auto' : 'none',
+                // opacity: Math.abs(active - i) >= max_vis ? '0' : '1',
+                // display: Math.abs(active - i) > max_vis ? 'none' : 'block',
               }}
             >
               {child}
