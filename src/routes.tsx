@@ -1,4 +1,4 @@
-import { createRootRoute, Router, Route } from '@tanstack/react-router'
+import { createRootRoute, Router, Route, createRouter } from '@tanstack/react-router'
 import Root from './pages/Root'
 import Home from './pages/Home'
 import Market from './pages/Market'
@@ -11,6 +11,9 @@ import { BillTabs } from './components/BillTabs'
 import MusicPage from './pages/music'
 import { CarouselDialog } from './pages/Test'
 import Workshop from './pages/Workshop'
+import Taka from './pages/Taka'
+import Products from './pages/Products'
+import Services from './pages/Services'
 
 const rootRoute = createRootRoute({
   component: Page,
@@ -58,9 +61,27 @@ const workshopRoute = new Route({
   component: Workshop,
 })
 
+const productsRoute = new Route({
+  getParentRoute: () => marketRoute,
+  path: '/products',
+  component: Products,
+})
+
+const servicesRoute = new Route({
+  getParentRoute: () => marketRoute,
+  path: '/services',
+  component: Services,
+})
+
+const takaRoute = new Route({
+  getParentRoute: () => marketRoute,
+  path: '/taka',
+  component: Taka,
+})
+
 const routeTree = rootRoute.addChildren([
   homeRoute,
-  marketRoute,
+  marketRoute.addChildren([productsRoute, servicesRoute, takaRoute]),
   billboardRoute,
   messagesRoute,
   profileRoute,
@@ -68,7 +89,7 @@ const routeTree = rootRoute.addChildren([
   workshopRoute,
 ])
 
-export const router = new Router({ routeTree })
+export const router = createRouter({ routeTree })
 
 declare module '@tanstack/react-router' {
   interface Register {

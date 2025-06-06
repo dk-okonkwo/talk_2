@@ -1,14 +1,9 @@
+import React from 'react'
 
 function Home() {
   return (
-    <div className='bg-purple-200 p-30 flex items-center justify-center gap-3'>
-      {/* <HoverCardDemo />
-      <AvatarDemo />
-      <AvatarDropdown />
-      <SearchForm/> */}
-      Home
-    </div>
+    <div>Home</div>
   )
 }
 
-export default Home;
+export default Home
