@@ -63,19 +63,19 @@ const workshopRoute = new Route({
 
 const productsRoute = new Route({
   getParentRoute: () => marketRoute,
-  path: '/products',
+  path: 'products',
   component: Products,
 })
 
 const servicesRoute = new Route({
   getParentRoute: () => marketRoute,
-  path: '/services',
+  path: 'services',
   component: Services,
 })
 
 const takaRoute = new Route({
   getParentRoute: () => marketRoute,
-  path: '/taka',
+  path: 'taka',
   component: Taka,
 })
 
@@ -89,8 +89,8 @@ const routeTree = rootRoute.addChildren([
   workshopRoute,
 ])
 
-export const router = new Router({
-  routeTree,
+export const router = createRouter({
+  routeTree
 })
 
 declare module '@tanstack/react-router' {
