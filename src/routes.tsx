@@ -89,7 +89,7 @@ const routeTree = rootRoute.addChildren([
   workshopRoute,
 ])
 
-export const router = createRouter({
+export const router = new Router({
   routeTree,
 })
 
