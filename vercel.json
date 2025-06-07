@@ -1,0 +1,3 @@
+{
+  "rewrites": [{ "source": "/market/:path*", "destination": "/market" }]
+}
