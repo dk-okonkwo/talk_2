@@ -3,6 +3,7 @@
 import * as React from 'react'
 import { Minus, Plus } from 'lucide-react'
 // import { Bar, BarChart, ResponsiveContainer } from 'recharts'
+import { Input } from '@/components/ui/input'
 
 import { Button } from '@/components/ui/button'
 import {
@@ -24,48 +25,8 @@ import {
 import type { takaItem } from '@/data/products'
 import { useState } from 'react'
 import StarReview from './StarReview'
-
-const data = [
-  {
-    goal: 400,
-  },
-  {
-    goal: 300,
-  },
-  {
-    goal: 200,
-  },
-  {
-    goal: 300,
-  },
-  {
-    goal: 200,
-  },
-  {
-    goal: 278,
-  },
-  {
-    goal: 189,
-  },
-  {
-    goal: 239,
-  },
-  {
-    goal: 300,
-  },
-  {
-    goal: 200,
-  },
-  {
-    goal: 278,
-  },
-  {
-    goal: 189,
-  },
-  {
-    goal: 349,
-  },
-]
+import { Copy, Facebook, Instagram } from 'iconsax-react'
+import { ItemTabs } from './itemTab'
 
 export function DrawerDemo({ item }: { item: takaItem }) {
   const [goal, setGoal] = React.useState(350)
@@ -76,73 +37,81 @@ export function DrawerDemo({ item }: { item: takaItem }) {
 
   const [current, setCurrent] = useState(0)
 
-  return (
-    <DrawerContent className="!min-h-[95vh] md:!min-h-[85vh] z-500">
-      <div className="mx-auto w-full max-w-sm bg-green-300 overflow-y-scroll overflow-x-hidden">
-        <DrawerHeader>
-          <DrawerTitle>{item.name}</DrawerTitle>
-          <DrawerDescription>
-            {item.discount > 0 ? (
-              <div className="flex items-center gap-2">
-                <span className="font-bold">
-                  ₦{(item.price * (100 - item.discount)) / 100}
-                </span>
-                <s className="text-gray-500">₦{item.price}</s>
-              </div>
-            ) : (
-              <span className="font-bold">₦{item.price}</span>
-            )}
-          </DrawerDescription>
-        </DrawerHeader>
-        <div className="p-3 pb-0 flex flex-col items-center">
-          <div className="w-90/100 aspect-square bg-gray-100 rounded-xs border border-gray-300 flex items-center justify-center">
-            <div
-              className="w-90/100 aspect-square"
-              style={{
-                backgroundImage: `url(${item.imgUrls[current]})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat',
-              }}
-            ></div>
-          </div>
+  const [vendorMessage, setVendorMessage] = useState(
+    `Hi ${item.owner[0]}, is this available?`,
+  )
 
-          <Carousel
-            opts={{
-              align: 'start',
-            }}
-            className="w-95/100 max-w-95/100 relative mt-5 bg-gray-100 border border-gray-300"
-          >
-            <CarouselContent className="">
-              {item.imgUrls.map((_, index) => (
-                <CarouselItem
-                  key={index}
-                  className="basis-7/24 md:basis-1/2 lg:basis-1/3"
-                >
-                  <div className="p-1">
-                    <Button
-                      className={`w-full !aspect-square h-full rounded-xs ${current == index && 'border-3 border-[var(--primary)]'} !p-0 overflow-hidden`}
-                      onClick={() => setCurrent(index)}
-                    >
-                      <div
-                        className="w-full aspect-square"
-                        style={{
-                          backgroundImage: `url(${item.imgUrls[index]})`,
-                          backgroundSize: 'cover',
-                          backgroundPosition: 'center',
-                          backgroundRepeat: 'no-repeat',
-                        }}
-                      ></div>
-                    </Button>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="absolute left-[-20px] primary-bg stroke-white" />
-            <CarouselNext className="absolute right-[-20px] primary-bg stroke-white" />
-          </Carousel>
-          <div className='flex flex-col gap-3 w-full mt-3 pl-2'>
-            <StarReview review={item.rating} />
+  return (
+    <DrawerContent className="!min-h-[87vh] xl:!max-h-120 z-500">
+      <div className="mx-auto w-full max-w-sm overflow-y-scroll overflow-x-hidden sm:max-w-lg lg:max-w-full lg:flex lg:justify-between">
+        {/* left column */}
+        <div className="flex flex-col lg:w-50/100 lg:mb-8 h-full">
+          <DrawerHeader>
+            <DrawerTitle>{item.name}</DrawerTitle>
+            <DrawerDescription>
+              {item.discount > 0 ? (
+                <div className="flex items-center gap-2">
+                  <span className="font-bold">
+                    ₦{(item.price * (100 - item.discount)) / 100}
+                  </span>
+                  <s className="text-gray-500">₦{item.price}</s>
+                </div>
+              ) : (
+                <span className="font-bold">₦{item.price}</span>
+              )}
+            </DrawerDescription>
+          </DrawerHeader>
+
+          <div className="flex flex-col gap-4 p-3 pb-0 items-center w-full">
+            <div className="w-90/100 aspect-square bg-gray-100 rounded-xs border border-gray-300 flex items-center justify-center xl:w-60/100">
+              <div
+                className="w-90/100 aspect-square"
+                style={{
+                  backgroundImage: `url(${item.imgUrls[current]})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  backgroundRepeat: 'no-repeat',
+                }}
+              ></div>
+            </div>
+
+            <Carousel
+              opts={{
+                align: 'start',
+              }}
+              className="w-95/100 max-w-95/100 relative bg-gray-100 border border-gray-300"
+            >
+              <CarouselContent className="">
+                {item.imgUrls.map((_, index) => (
+                  <CarouselItem key={index} className="basis-7/24 lg:basis-1/4">
+                    <div className="p-1">
+                      <Button
+                        className={`w-80/100 !aspect-square h-full rounded-xs ${current == index && 'border-3 border-[var(--primary)]'} !p-0 overflow-hidden`}
+                        onClick={() => setCurrent(index)}
+                      >
+                        <div
+                          className="w-full aspect-square"
+                          style={{
+                            backgroundImage: `url(${item.imgUrls[index]})`,
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                            backgroundRepeat: 'no-repeat',
+                          }}
+                        ></div>
+                      </Button>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="absolute left-[-20px] primary-bg stroke-white" />
+              <CarouselNext className="absolute right-[-20px] primary-bg stroke-white" />
+            </Carousel>
+          </div>
+        </div>
+
+        {/* Right Column */}
+        <div className="p-3 pb-0 flex flex-col items-center gap-4 lg:w-45/100">
+          <div className="flex flex-col gap-3 w-full pl-2">
             <div className="flex items-center gap-2">
               <Avatar>
                 <AvatarImage src={item.owner[1]} alt="item owner" />
@@ -150,36 +119,47 @@ export function DrawerDemo({ item }: { item: takaItem }) {
               </Avatar>
               <span>{item.owner[0]}</span>
             </div>
+            <StarReview review={item.rating} />
+          </div>
+          {/* Message Vendor */}
+          <div className="flex w-full max-w-sm items-center gap-3 md:max-w-md lg:max-w-full">
+            <Input
+              type="text"
+              placeholder="Is this available?"
+              value={vendorMessage}
+              onChange={(e) => setVendorMessage(e.target.value)}
+              className="rounded-xs text-xs"
+            />
+            <Button type="submit" className="rounded-xs hover:cursor-pointer">
+              Message Vendor
+            </Button>
           </div>
 
-          <div className="flex items-center justify-center space-x-2">
+          {/*Share and Save Options */}
+          <div className="flex items-center w-full gap-3">
+            <span className="text-xs">Share product:</span>
+            <Copy
+              variant="Bold"
+              className="w-5 h-5 stroke-primary transition-all duration-300 ease-in-out hover:cursor-pointer hover:fill-primary"
+            />
+            <Facebook
+              variant="Bold"
+              className="w-5 h-5 stroke-primary transition-all duration-300 ease-in-out hover:cursor-pointer hover:fill-primary"
+            />
+            <Instagram
+              variant="Bold"
+              className="w-5 h-5 stroke-primary transition-all duration-300 ease-in-out hover:cursor-pointer hover:fill-primary"
+            />
             <Button
               variant="outline"
-              size="icon"
-              className="h-8 w-8 shrink-0 rounded-full"
-              onClick={() => onClick(-10)}
-              disabled={goal <= 200}
+              className="ml-auto rounded-xs text-primary border-primary hover:bg-primary hover:text-white hover:cursor-pointer"
             >
-              <Minus />
-              <span className="sr-only">Decrease</span>
-            </Button>
-            <div className="flex-1 text-center">
-              <div className="text-7xl font-bold tracking-tighter">{goal}</div>
-              <div className="text-muted-foreground text-[0.70rem] uppercase">
-                Calories/day
-              </div>
-            </div>
-            <Button
-              variant="outline"
-              size="icon"
-              className="h-8 w-8 shrink-0 rounded-full"
-              onClick={() => onClick(10)}
-              disabled={goal >= 400}
-            >
-              <Plus />
-              <span className="sr-only">Increase</span>
+              Save
             </Button>
           </div>
+
+          <ItemTabs />
+
           {/* <div className="mt-3 h-[120px]">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={data}>
@@ -196,12 +176,6 @@ export function DrawerDemo({ item }: { item: takaItem }) {
               </ResponsiveContainer>
             </div> */}
         </div>
-        <DrawerFooter>
-          <Button>Submit</Button>
-          <DrawerClose asChild>
-            <Button variant="outline">Cancel</Button>
-          </DrawerClose>
-        </DrawerFooter>
       </div>
     </DrawerContent>
   )
