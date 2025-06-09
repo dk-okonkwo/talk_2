@@ -4,6 +4,11 @@ import * as React from 'react'
 import { Minus, Plus } from 'lucide-react'
 // import { Bar, BarChart, ResponsiveContainer } from 'recharts'
 import { Input } from '@/components/ui/input'
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from '@/components/ui/tooltip'
 
 import { Button } from '@/components/ui/button'
 import {
@@ -122,7 +127,7 @@ export function DrawerDemo({ item }: { item: takaItem }) {
             <StarReview review={item.rating} />
           </div>
           {/* Message Vendor */}
-          <div className="flex w-full max-w-sm items-center gap-3 md:max-w-md lg:max-w-full">
+          <div className="flex w-full items-center gap-3 md:max-w-md lg:max-w-full">
             <Input
               type="text"
               placeholder="Is this available?"
@@ -138,10 +143,18 @@ export function DrawerDemo({ item }: { item: takaItem }) {
           {/*Share and Save Options */}
           <div className="flex items-center w-full gap-3">
             <span className="text-xs">Share product:</span>
-            <Copy
-              variant="Bold"
-              className="w-5 h-5 stroke-primary transition-all duration-300 ease-in-out hover:cursor-pointer hover:fill-primary"
-            />
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Copy
+                  variant="Bold"
+                  className="w-5 h-5 stroke-primary transition-all duration-300 ease-in-out hover:cursor-pointer hover:fill-primary"
+                />
+              </TooltipTrigger>
+              <TooltipContent className="z-1000 p-2">
+                <p>Copy link</p>
+              </TooltipContent>
+            </Tooltip>
+
             <Facebook
               variant="Bold"
               className="w-5 h-5 stroke-primary transition-all duration-300 ease-in-out hover:cursor-pointer hover:fill-primary"

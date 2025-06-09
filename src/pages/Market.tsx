@@ -12,6 +12,15 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from '@/components/ui/navigation-menu'
 import { Link, Outlet, useRouterState } from '@tanstack/react-router'
 
 function Market() {
@@ -29,33 +38,43 @@ function Market() {
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>
-              <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center gap-1 text-lg md:text-xl">
-                  <span>Marketplace</span>
-                  <span className="sr-only">Toggle menu</span>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="start">
-                  <Link to="/market/products">
-                    <DropdownMenuItem className="text-lg">
-                      Products
-                    </DropdownMenuItem>
-                  </Link>
-                  <Link to="/market/services">
-                    <DropdownMenuItem className="text-lg">
-                      Services
-                    </DropdownMenuItem>
-                  </Link>
-                  <Link to="/market/taka">
-                    <DropdownMenuItem className="text-lg">
-                      Taka
-                    </DropdownMenuItem>
-                  </Link>
-                </DropdownMenuContent>
-              </DropdownMenu>
+              <NavigationMenu viewport={false}>
+                <NavigationMenuList>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger className="text-md md:text-xl bg-transparent">
+                      Marketplace
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <ul className="grid gap-4 w-fit">
+                        <li>
+                          <NavigationMenuLink
+                            asChild
+                            className="text-md md:text-xl"
+                          >
+                            <Link to="/market/products">Products</Link>
+                          </NavigationMenuLink>
+                          <NavigationMenuLink
+                            asChild
+                            className="text-md md:text-xl"
+                          >
+                            <Link to="/market/services">Services</Link>
+                          </NavigationMenuLink>
+                          <NavigationMenuLink
+                            asChild
+                            className="text-md md:text-xl"
+                          >
+                            <Link to="/market/taka">Taka</Link>
+                          </NavigationMenuLink>
+                        </li>
+                      </ul>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbPage className="text-lg md:text-xl">
+              <BreadcrumbPage className="text-md md:text-xl">
                 {title}
               </BreadcrumbPage>
             </BreadcrumbItem>
