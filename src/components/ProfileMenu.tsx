@@ -12,7 +12,7 @@ import {
 } from '@/components/ui/navigation-menu'
 import { Briefcase, Sms, Setting2, type Icon } from 'iconsax-react'
 
-const links = ['Workshop', 'Message', 'Settings']
+const links = ['Workshop', 'Messages', 'Settings']
 const linkIcons: Icon[] = [Briefcase, Sms, Setting2]
 
 export function ProfileMenu() {

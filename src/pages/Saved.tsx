@@ -20,6 +20,7 @@ import {
 import { savedItems } from '@/data/saved-items'
 import { CloseCircle, ShoppingCart } from 'iconsax-react'
 import { MoreHorizontal } from 'lucide-react'
+import { Link } from '@tanstack/react-router'
 
 export default function Saved() {
   return (
@@ -28,7 +29,7 @@ export default function Saved() {
         <TableRow>
           <TableHead className="w-[100px]">PRODUCTS</TableHead>
           <TableHead>PRICE</TableHead>
-          <TableHead className='hidden sm:!table-cell'>STATUS</TableHead>
+          <TableHead className="hidden sm:!table-cell">STATUS</TableHead>
           <TableHead>ACTIONS</TableHead>
         </TableRow>
       </TableHeader>
@@ -52,10 +53,13 @@ export default function Saved() {
               {saved.isAvailable ? 'IN STOCK' : 'OUT OF STOCK'}
             </TableCell>
             <TableCell className="items-center gap-6 hidden sm:!flex">
-              <Button className="flex items-center gap-3 rounded-xs">
-                <span>Message Vendor</span>
-                <ShoppingCart className="w-5 h-5 stroke-white" />
-              </Button>
+              <Link to="/messages">
+                <Button className="flex items-center gap-3 rounded-xs">
+                  <span>Message Vendor</span>
+                  <ShoppingCart className="w-5 h-5 stroke-white" />
+                </Button>
+              </Link>
+
               <CloseCircle className="w-5 h-5 stroke-black" />
             </TableCell>
             <TableCell className="sm:!hidden">
