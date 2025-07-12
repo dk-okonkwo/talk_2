@@ -1,8 +1,6 @@
 'use client'
 
 import * as React from 'react'
-import { Minus, Plus } from 'lucide-react'
-// import { Bar, BarChart, ResponsiveContainer } from 'recharts'
 import { Input } from '@/components/ui/input'
 import {
   Tooltip,
@@ -12,10 +10,8 @@ import {
 
 import { Button } from '@/components/ui/button'
 import {
-  DrawerClose,
   DrawerContent,
   DrawerDescription,
-  DrawerFooter,
   DrawerHeader,
   DrawerTitle,
 } from '@/components/ui/drawer'
@@ -27,18 +23,23 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
 import type { takaItem } from '@/data/products'
 import { useState } from 'react'
 import StarReview from './StarReview'
 import { Copy, Facebook, Instagram } from 'iconsax-react'
 import { ItemTabs } from './itemTab'
+import { Link } from '@tanstack/react-router'
 
 export function DrawerDemo({ item }: { item: takaItem }) {
-  const [goal, setGoal] = React.useState(350)
-
-  function onClick(adjustment: number) {
-    setGoal(Math.max(200, Math.min(400, goal + adjustment)))
-  }
 
   const [current, setCurrent] = useState(0)
 
@@ -118,11 +119,31 @@ export function DrawerDemo({ item }: { item: takaItem }) {
         <div className="p-3 pb-0 flex flex-col items-center gap-4 lg:w-45/100">
           <div className="flex flex-col gap-3 w-full pl-2">
             <div className="flex items-center gap-2">
-              <Avatar>
-                <AvatarImage src={item.owner[1]} alt="item owner" />
-                <AvatarFallback>JS</AvatarFallback>
-              </Avatar>
-              <span>{item.owner[0]}</span>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="outline" className="border-none shadow-none">
+                    <Avatar>
+                      <AvatarImage src={item.owner[1]} alt="item owner" />
+                      <AvatarFallback>JS</AvatarFallback>
+                    </Avatar>
+                    <span className="hover:underline">{item.owner[0]}</span>
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-56 z-3000" align="start">
+                  <DropdownMenuLabel className="font-bold">
+                    Go To
+                  </DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuGroup>
+                    <Link to="/profile">
+                      <DropdownMenuItem>Vendor's Profile</DropdownMenuItem>
+                    </Link>
+                    <Link to="/workshop">
+                      <DropdownMenuItem>Vendor's Workshop</DropdownMenuItem>
+                    </Link>
+                  </DropdownMenuGroup>
+                </DropdownMenuContent>
+              </DropdownMenu>
             </div>
             <StarReview review={item.rating} />
           </div>

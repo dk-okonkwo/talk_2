@@ -2,7 +2,7 @@ import { AppSidebar } from '@/components/app-sidebar'
 import TalkNotification from '@/components/Notification'
 import { SearchForm } from '@/components/Search'
 import { Button } from '@/components/ui/button'
-import { Link, Outlet } from '@tanstack/react-router'
+import { Link, Outlet, useRouterState } from '@tanstack/react-router'
 import { MessageText } from 'iconsax-react'
 import { Separator } from '@/components/ui/separator'
 import {
@@ -39,6 +39,10 @@ const teams = [
 ]
 
 export default function Page() {
+  const pathname = useRouterState({
+    select: (state) => state.location.pathname,
+  })
+
   return (
     <SidebarProvider className="overflow-x-hidden">
       <AppSidebar />
@@ -50,26 +54,13 @@ export default function Page() {
               orientation="vertical"
               className="mr-2 !h-4 hidden sm:!block"
             />
-            {/* <Breadcrumb>
-              <BreadcrumbList>
-                <BreadcrumbItem className="hidden md:block">
-                  <BreadcrumbLink href="#">
-                    Building Your Application
-                  </BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator className="hidden md:block" />
-                <BreadcrumbItem>
-                  <BreadcrumbPage>Data Fetching</BreadcrumbPage>
-                </BreadcrumbItem>
-              </BreadcrumbList>
-            </Breadcrumb> */}
             <div className="flex items-center justify-between flex-1">
               <SearchForm />
               <div className="flex items-center ml-2 gap-1 sm:gap-4">
                 <TooltipProvider>
                   <Tooltip>
                     <TooltipTrigger asChild>
-                      <Link to='/'>
+                      <Link to="/messages">
                         <Button
                           variant="outline"
                           className="rounded-full !p-2 aspect-square"
@@ -95,13 +86,9 @@ export default function Page() {
             </div>
           </div>
         </header>
-        <div className="flex flex-1 flex-col gap-4 p-4 pt-0 bg-[var(--main-bg)]">
-          {/* <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-            <div className="aspect-video rounded-xl bg-orange-200" />
-            <div className="aspect-video rounded-xl bg-orange-200" />
-            <div className="aspect-video rounded-xl bg-orange-200" />
-          </div>
-          <div className="min-h-[100vh] flex-1 rounded-xl bg-orange-200 md:min-h-min" /> */}
+        <div
+          className={`flex flex-1 flex-col gap-4 ${pathname == '/messages' ? 'max-h-[calc(100svh-4rem)] p-0 py-1' : 'p-4 pt-0'}  bg-[var(--main-bg)]`}
+        >
           <Outlet />
           <NavBar />
         </div>

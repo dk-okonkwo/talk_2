@@ -1,10 +1,11 @@
 'use client'
 
 import * as React from 'react'
+import { useEffect } from 'react'
 import { Slot } from '@radix-ui/react-slot'
 import { type VariantProps, cva } from 'class-variance-authority'
 import { PanelLeftIcon } from 'lucide-react'
-
+import { useRouterState } from '@tanstack/react-router'
 import { useIsMobile } from '@/hooks/use-mobile'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
@@ -258,7 +259,18 @@ function SidebarTrigger({
   onClick,
   ...props
 }: React.ComponentProps<typeof Button>) {
-  const { toggleSidebar } = useSidebar()
+  const { toggleSidebar, open } = useSidebar()
+
+  const pathname = useRouterState({
+    select: (state) => state.location.pathname,
+  })
+
+  // Collapse the sidebar automatically when we land on /messages
+  useEffect(() => {
+    if (pathname === '/messages' && open) {
+      toggleSidebar()
+    }
+  }, [pathname, open, toggleSidebar])
 
   return (
     <Button

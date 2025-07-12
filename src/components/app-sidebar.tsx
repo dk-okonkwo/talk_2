@@ -70,7 +70,7 @@ const data = {
 
 const markNav = {
   title: 'Marketplace',
-  url: '#',
+  url: '/market/products',
   icon: Shop,
   isActive: true,
   items: [
